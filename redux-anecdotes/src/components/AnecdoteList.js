@@ -10,12 +10,14 @@ const AnecdoteList = () => {
       ? state.anecdotes.filter(a => a.content.includes(state.filterString))
       : state.anecdotes
   )
+  const timeoutId = useSelector(state => state.notification.timeoutId)
+
   const dispatch = useDispatch()
 
   const vote = (anecdote) => {
     console.log('vote', anecdote.id)
     dispatch(addVote(anecdote))
-    dispatch(setNotification('You voted "' + anecdote.content + '"', 5))
+    dispatch(setNotification('You voted "' + anecdote.content + '"', 5, timeoutId))
   }
 
   return (

@@ -8,8 +8,8 @@ import filterReducer from './reducers/filterReducer'
 
 const reducer = combineReducers({
   anecdotes: anecdoteReducer,
-  message: notificationReducer,
-  filterString: filterReducer
+  notification: notificationReducer,
+  filterString: filterReducer,
 })
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
